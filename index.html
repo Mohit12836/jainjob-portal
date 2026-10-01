@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>JainJob App | भरोसेमंद नौकरियां & सही स्टाफ — 1-Click WhatsApp</title>
+  <meta name="description" content="JainJob.in Mobile App - भारत का सबसे सरल और भरोसेमंद जॉब पोर्टल। बिना फॉर्म के सीधे WhatsApp पर मालिक या HR से बात करें।" />
+  <meta name="theme-color" content="#0F766E" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#F0FDF9',
+              100: '#CCFBEF',
+              200: '#99F6E0',
+              500: '#14B8A6',
+              600: '#0D9488',
+              700: '#0F766E',
+              800: '#115E59',
+              900: '#134E4A',
+            },
+            saffron: {
+              400: '#FB923C',
+              500: '#F97316',
+              600: '#EA580C',
+              700: '#C2410C',
+            },
+            jainGold: {
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706',
+            },
+            darkCanvas: '#0B1120',
+            darkCard: '#151F32'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif'],
+            display: ['"Outfit"', '"Noto Sans Devanagari"', 'sans-serif'],
+          },
+          boxShadow: {
+            'app-card': '0 4px 20px -2px rgba(15, 118, 110, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
+            'app-dock': '0 -8px 25px rgba(0, 0, 0, 0.08)',
+            'glow-saffron': '0 0 20px -3px rgba(249, 115, 22, 0.5)',
+            'glow-emerald': '0 0 20px -3px rgba(16, 185, 129, 0.5)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Mandatory Auto-fit & Native App Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body {
+      max-width: 100%;
+      overflow-x: clip;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+    }
+
+    /* Custom Hide Scrollbar for Horizontal App Stories */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* 1px Apple/Pinterest Top Glass Reflection */
+    .glass-reflect {
+      position: relative;
+    }
+    .glass-reflect::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      pointer-events-none;
+    }
+
+    /* Senior Citizen / Easy Mode High Accessibility Styles */
+    body.senior-mode {
+      font-size: 118% !important;
+    }
+    body.senior-mode .senior-scale {
+      font-size: 1.25rem !important;
+      line-height: 1.5 !important;
+    }
+    body.senior-mode .app-btn {
+      padding-top: 0.95rem !important;
+      padding-bottom: 0.95rem !important;
+      font-size: 1.15rem !important;
+    }
+    body.senior-mode .card-border-bold {
+      border-width: 2px !important;
+      border-color: #0F766E !important;
+    }
+
+    /* App Tab Animations */
+    .tab-active {
+      color: #0D9488 !important;
+      transform: translateY(-2px);
+    }
+    .dark .tab-active {
+      color: #2DD4BF !important;
+    }
+
+    /* Pull to Refresh / Live pulse */
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .live-pulse {
+      animation: pulseRing 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-100 dark:bg-darkCanvas text-slate-900 dark:text-slate-100 min-h-screen flex flex-col items-center justify-start transition-colors duration-300">
+
+  <!-- ================= APP WRAPPER (MOBILE EDGE-TO-EDGE + DESKTOP APP FRAME) ================= -->
+  <div class="w-full max-w-md md:max-w-lg lg:max-w-xl min-h-screen bg-slate-50 dark:bg-[#0E1726] shadow-2xl relative flex flex-col justify-between pb-24 md:pb-24 border-x border-slate-200/80 dark:border-slate-800">
+    
+    <!-- ================= NATIVE APP STATUS BAR (SIMULATED FOR AUTHENTIC APP FEEL) ================= -->
+    <div class="pt-2 px-4 pb-1 flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400 bg-white/95 dark:bg-[#0E1726]/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 dark:border-slate-800/80">
+      <div class="flex items-center gap-1.5">
+        <span id="appLiveClock">10:45</span>
+        <span class="text-[9px] bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-extrabold px-1.5 py-0.2 rounded">5G Live</span>
+      </div>
+      
+      <!-- Top App Controls (Senior Mode, Theme, Lang) -->
+      <div class="flex items-center gap-2">
+        <!-- Senior Mode Toggle -->
+        <button onclick="toggleSeniorMode()" id="seniorModeBtn" class="flex items-center gap-1 bg-amber-100 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 px-2 py-0.5 rounded-full text-[10px] font-extrabold border border-amber-300 dark:border-amber-700/50 active:scale-95 transition-transform" title="बड़ा अक्षर मोड़">
+          <i data-lucide="eye" class="w-3 h-3"></i>
+          <span id="seniorText">बड़ा अक्षर</span>
+        </button>
+
+        <!-- Dark / Light Theme Toggle -->
+        <button onclick="toggleAppTheme()" class="p-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 active:scale-90 transition-transform">
+          <i data-lucide="moon" id="themeIcon" class="w-3.5 h-3.5"></i>
+        </button>
+
+        <!-- Language Selector -->
+        <select id="appLang" onchange="changeLanguage(this.value)" class="bg-transparent text-[10px] font-bold text-slate-600 dark:text-slate-300 focus:outline-none cursor-pointer">
+          <option value="hi" class="dark:bg-slate-900">🇮🇳 हिंदी</option>
+          <option value="en" class="dark:bg-slate-900">🇬🇧 Eng</option>
+          <option value="gu" class="dark:bg-slate-900">🇮🇳 ગુજ</option>
+        </select>
+      </div>
+    </div>
+
+
+    <!-- ================= APP TOP HEADER ================= -->
+    <header class="bg-white dark:bg-[#0E1726] px-4 pt-3 pb-3 sticky top-[29px] z-40 border-b border-slate-100 dark:border-slate-800/80">
+      <div class="flex items-center justify-between gap-2">
+        
+        <!-- App Logo & Greeting -->
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-700 via-teal-600 to-emerald-500 text-white flex items-center justify-center font-black text-lg shadow-md shadow-brand-600/30">
+            JJ
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <h1 class="text-base font-black font-display tracking-tight text-slate-900 dark:text-white leading-none">
+                Jain<span class="text-brand-600 dark:text-teal-400">Job</span><span class="text-saffron-500 text-xs">.in</span>
+              </h1>
+              <span class="inline-flex items-center text-[9px] font-extrabold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 px-1.5 py-0.2 rounded-full">
+                100% Free
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">जय जिनेन्द्र! आज 240+ नई नौकरियां</p>
+          </div>
+        </div>
+
+        <!-- Quick Post Job Free Button & Notification Bell -->
+        <div class="flex items-center gap-1.5">
+          <button onclick="openPostJobModal()" class="flex items-center gap-1 bg-gradient-to-r from-saffron-500 to-amber-500 text-white font-extrabold text-[11px] px-2.5 py-1.5 rounded-xl shadow-md shadow-saffron-500/20 active:scale-95 transition-transform">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+            <span>स्टाफ चाहिए</span>
+          </button>
+
+          <!-- Notification Bell with Ping -->
+          <button onclick="showAppNotificationToast()" class="relative p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 active:scale-90 transition-transform">
+            <i data-lucide="bell" class="w-4 h-4"></i>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-saffron-500 animate-ping"></span>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-saffron-500"></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ================= APP SMART SEARCH BAR ================= -->
+      <div class="mt-3 relative flex items-center">
+        <div class="absolute left-3 text-slate-400 dark:text-slate-500 pointer-events-none flex items-center">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </div>
+        <input 
+          type="text" 
+          id="appSearchInput" 
+          oninput="handleLiveSearch(this.value)"
+          placeholder="सर्च करें: एकाउंटेंट, सूरत, सेल्स, WFH..." 
+          class="w-full bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-semibold pl-9 pr-16 py-2.5 rounded-2xl border border-transparent focus:border-brand-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500"
+        />
+        <!-- Voice Search Button -->
+        <button 
+          onclick="simulateVoiceSearch()" 
+          id="appVoiceBtn"
+          class="absolute right-2 px-2 py-1 bg-white dark:bg-slate-700 shadow-sm rounded-xl text-slate-600 dark:text-slate-200 flex items-center gap-1 text-[11px] font-bold border border-slate-200 dark:border-slate-600 active:scale-95 transition-transform"
+        >
+          <i data-lucide="mic" class="w-3.5 h-3.5 text-brand-600 dark:text-teal-400"></i>
+          <span>बोलें</span>
+        </button>
+      </div>
+
+      <!-- Voice search listener status -->
+      <div id="appVoiceAlert" class="hidden mt-2 px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-700 rounded-xl text-xs font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-2 animate-pulse">
+        <i data-lucide="mic" class="w-4 h-4 animate-bounce text-emerald-600"></i>
+        <span>सुन रहे हैं... बोलिए (जैसे: "सूरत में एकाउंटेंट")</span>
+      </div>
+    </header>
+
+
+    <!-- ================= MAIN SCROLLABLE APP CONTENT ================= -->
+    <main class="flex-1 overflow-y-auto px-3.5 py-3 space-y-4">
+      
+      <!-- ================= 1. INSTAGRAM/SWIGGY-STYLE STORY CATEGORIES ================= -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-extrabold text-slate-800 dark:text-slate-200 uppercase tracking-wider flex items-center gap-1">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-brand-600"></i> श्रेणियां (Categories)
+          </span>
+          <span class="text-[11px] text-brand-600 dark:text-teal-400 font-bold">स्वाइप करें 👉</span>
+        </div>
+
+        <div class="flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
+          
+          <!-- Category 1 -->
+          <div onclick="filterCategory('accounts')" class="flex flex-col items-center gap-1 shrink-0 cursor-pointer group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-400 p-[2px] shadow-sm group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-[14px] bg-white dark:bg-slate-800 flex items-center justify-center text-brand-700 dark:text-teal-300">
+                <i data-lucide="calculator" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300">एकाउंट्स</span>
+          </div>
+
+          <!-- Category 2 -->
+          <div onclick="filterCategory('textile')" class="flex flex-col items-center gap-1 shrink-0 cursor-pointer group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 to-saffron-400 p-[2px] shadow-sm group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-[14px] bg-white dark:bg-slate-800 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300">टेक्सटाइल</span>
+          </div>
+
+          <!-- Category 3 -->
+          <div onclick="filterCategory('diamond')" class="flex flex-col items-center gap-1 shrink-0 cursor-pointer group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-[2px] shadow-sm group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-[14px] bg-white dark:bg-slate-800 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <i data-lucide="gem" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300">डायमंड</span>
+          </div>
+
+          <!-- Category 4 -->
+          <div onclick="filterCategory('wfh')" class="flex flex-col items-center gap-1 shrink-0 cursor-pointer group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 p-[2px] shadow-sm group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-[14px] bg-white dark:bg-slate-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                <i data-lucide="home" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300">घर बैठे WFH</span>
+          </div>
+
+          <!-- Category 5 -->
+          <div onclick="filterCategory('maharaj')" class="flex flex-col items-center gap-1 shrink-0 cursor-pointer group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-500 to-amber-400 p-[2px] shadow-sm group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-[14px] bg-white dark:bg-slate-800 flex items-center justify-center text-orange-600 dark:text-orange-400">
+                <i data-lucide="utensils" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300">जैन रसोइया</span>
+          </div>
+
+          <!-- Category 6 -->
+          <div onclick="filterCategory('driver')" class="flex flex-col items-center gap-1 shrink-0 cursor-pointer group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-500 to-pink-400 p-[2px] shadow-sm group-hover:scale-105 transition-transform">
+              <div class="w-full h-full rounded-[14px] bg-white dark:bg-slate-800 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                <i data-lucide="car" class="w-6 h-6"></i>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold text-slate-700 dark:text-slate-300">ड्राइवर/स्टाफ</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= 2. PINTEREST BENTO HERO CARD ================= -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-700 via-teal-800 to-slate-900 text-white p-4 shadow-xl glass-reflect">
+        <!-- Ambient Glow -->
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-amber-400/20 rounded-full blur-2xl pointer-events-none"></div>
+        
+        <div class="relative z-10 flex items-start justify-between gap-2">
+          <div>
+            <span class="inline-flex items-center gap-1 bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full border border-white/20">
+              ⚡ 100% नि:शुल्क सेवा
+            </span>
+            <h2 class="text-lg font-black font-display mt-2 leading-tight">
+              सीधे <span class="text-emerald-300">WhatsApp</span> पर बात करें और नौकरी पाएं!
+            </h2>
+            <p class="text-teal-100 text-xs mt-1">कोई लंबा फॉर्म नहीं, कोई रजिस्ट्रेशन चार्ज नहीं।</p>
+          </div>
+          
+          <div class="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-emerald-400 border border-white/20 shrink-0">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+          </div>
+        </div>
+
+        <!-- Quick Action Stats in Hero Bento -->
+        <div class="mt-3 pt-3 border-t border-white/15 grid grid-cols-3 gap-2 text-center text-xs">
+          <div class="bg-white/10 rounded-xl p-1.5">
+            <p class="font-black text-amber-300">12,500+</p>
+            <p class="text-[9px] text-teal-100">सत्यापित जॉब्स</p>
+          </div>
+          <div class="bg-white/10 rounded-xl p-1.5">
+            <p class="font-black text-emerald-300">1-Tap</p>
+            <p class="text-[9px] text-teal-100">WhatsApp Apply</p>
+          </div>
+          <div class="bg-white/10 rounded-xl p-1.5">
+            <p class="font-black text-white">₹0</p>
+            <p class="text-[9px] text-teal-100">Zero Commission</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ================= 3. QUICK CITY & FEATURE FILTER PILLS ================= -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+        <button onclick="filterCity('all')" class="city-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-brand-700 text-white shrink-0 shadow-sm" data-city="all">
+          📍 सभी शहर
+        </button>
+        <button onclick="filterCity('surat')" class="city-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shrink-0" data-city="surat">
+          सूरत (Surat)
+        </button>
+        <button onclick="filterCity('ahmedabad')" class="city-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shrink-0" data-city="ahmedabad">
+          अहमदाबाद
+        </button>
+        <button onclick="filterCity('mumbai')" class="city-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shrink-0" data-city="mumbai">
+          मुंबई
+        </button>
+        <button onclick="filterCity('remote')" class="city-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 shrink-0" data-city="remote">
+          🏡 घर से (WFH)
+        </button>
+        <button onclick="filterCity('jaipur')" class="city-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shrink-0" data-city="jaipur">
+          जयपुर
+        </button>
+      </div>
+
+
+      <!-- ================= 4. LIVE JOBS FEED (NATIVE APP CARDS) ================= -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <h3 class="text-xs font-black text-slate-800 dark:text-slate-200 uppercase tracking-wider">
+              लाइव नौकरियां (<span id="appJobCount">9</span>)
+            </h3>
+          </div>
+          <span class="text-[10px] text-slate-400 font-semibold">1-क्लिक में संपर्क करें</span>
+        </div>
+
+        <!-- Dynamic Jobs List Container -->
+        <div id="appJobsList" class="space-y-3">
+          <!-- Javascript dynamically injects cards here -->
+        </div>
+
+        <!-- No Job Found Fallback -->
+        <div id="appNoResults" class="hidden text-center py-8 bg-white dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
+          <i data-lucide="search-x" class="w-10 h-10 text-amber-500 mx-auto mb-2"></i>
+          <p class="text-sm font-bold text-slate-800 dark:text-white">कोई नौकरी नहीं मिली</p>
+          <p class="text-xs text-slate-500 mt-1">कृपया कोई दूसरा शब्द या शहर चुनकर देखें।</p>
+          <button onclick="resetAppFilters()" class="mt-3 px-4 py-1.5 bg-brand-600 text-white rounded-xl text-xs font-bold shadow">
+            रीसेट करें
+          </button>
+        </div>
+
+        <!-- Load More Feed Button -->
+        <div class="text-center pt-2">
+          <button onclick="loadMoreFeed()" class="w-full py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center justify-center gap-1.5 shadow-sm active:scale-98 transition-transform">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-brand-600"></i>
+            <span>और नौकरियां लोड करें (Load More)</span>
+          </button>
+        </div>
+      </div>
+
+
+      <!-- ================= 5. QUICK 2-MIN WHATSAPP ALERTS BANNER ================= -->
+      <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-2xl p-4 shadow-md">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="bell-ring" class="w-4 h-4 text-amber-300"></i>
+          <h4 class="text-xs font-bold">WhatsApp जॉब अलर्ट चालू करें</h4>
+        </div>
+        <p class="text-[11px] text-emerald-100 mb-2">नई जॉब्स का नोटिफिकेशन सीधे आपके मोबाइल पर</p>
+        <div class="flex gap-1.5">
+          <input 
+            type="tel" 
+            id="appSubNumber" 
+            placeholder="10 डिजिट WhatsApp नंबर" 
+            maxlength="10"
+            class="flex-1 px-3 py-2 rounded-xl text-slate-900 font-bold text-xs focus:outline-none"
+          />
+          <button onclick="handleAppSubscribe()" class="bg-amber-400 active:bg-amber-500 text-slate-950 font-black px-3 py-2 rounded-xl text-xs shrink-0 shadow">
+            चालू करें 🔔
+          </button>
+        </div>
+        <p id="appSubSuccess" class="hidden text-amber-200 text-[10px] font-bold mt-1.5">
+          ✅ धन्यवाद! आपको WhatsApp पर अलर्ट्स प्राप्त होंगे।
+        </p>
+      </div>
+
+    </main>
+
+
+    <!-- ================= NATIVE MOBILE BOTTOM NAVIGATION DOCK (5 TABS) ================= -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md md:max-w-lg lg:max-w-xl z-50 bg-white/95 dark:bg-[#0E1726]/95 backdrop-blur-lg border-t border-slate-200/90 dark:border-slate-800 px-3 py-1.5 shadow-app-dock flex items-center justify-around">
+      
+      <!-- Tab 1: Home -->
+      <button onclick="switchAppTab('home')" id="tabHome" class="flex flex-col items-center gap-0.5 text-brand-700 dark:text-teal-400 font-bold transition-all">
+        <i data-lucide="home" class="w-5 h-5"></i>
+        <span class="text-[10px]">होम</span>
+      </button>
+
+      <!-- Tab 2: Saved / Bookmarks -->
+      <button onclick="switchAppTab('saved')" id="tabSaved" class="flex flex-col items-center gap-0.5 text-slate-400 dark:text-slate-500 font-medium transition-all relative">
+        <i data-lucide="bookmark" class="w-5 h-5"></i>
+        <span class="text-[10px]">सेव जॉब्स</span>
+        <span id="savedCountBadge" class="hidden absolute -top-1 right-2 w-4 h-4 rounded-full bg-saffron-500 text-white text-[9px] font-bold flex items-center justify-center">0</span>
+      </button>
+
+      <!-- Center Highlight: Post Job Free (FAB) -->
+      <button onclick="openPostJobModal()" class="-mt-6 w-12 h-12 rounded-2xl bg-gradient-to-tr from-saffron-500 to-amber-400 text-white flex items-center justify-center shadow-lg shadow-saffron-500/40 border-2 border-white dark:border-slate-900 active:scale-90 transition-transform">
+        <i data-lucide="plus" class="w-6 h-6 stroke-[3]"></i>
+      </button>
+
+      <!-- Tab 3: Alerts -->
+      <button onclick="switchAppTab('alerts')" id="tabAlerts" class="flex flex-col items-center gap-0.5 text-slate-400 dark:text-slate-500 font-medium transition-all">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="text-[10px]">अलर्ट</span>
+      </button>
+
+      <!-- Tab 4: Direct WhatsApp Support -->
+      <a href="https://wa.me/919876543210?text=Namaste%20JainJob%20Team%2C%20mujhe%20job%20ke%20liye%20madad%20chahiye" target="_blank" class="flex flex-col items-center gap-0.5 text-emerald-600 dark:text-emerald-400 font-bold transition-all">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <span class="text-[10px]">हेल्प</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- ================= APP MODAL: POST A JOB FREE (EMPLOYERS) ================= -->
+  <div id="postJobModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-800 relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <button onclick="closePostJobModal()" class="absolute top-4 right-4 p-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-8 h-8 rounded-xl bg-saffron-100 dark:bg-saffron-950/60 text-saffron-600 flex items-center justify-center">
+          <i data-lucide="briefcase" class="w-4 h-4"></i>
+        </div>
+        <h3 class="text-base font-black text-slate-900 dark:text-white">फ्री जॉब पोस्ट करें</h3>
+      </div>
+      <p class="text-[11px] text-slate-500 dark:text-slate-400 mb-3">सीधे WhatsApp पर योग्य स्टाफ के आवेदन पाएं</p>
+
+      <form onsubmit="handlePostJob(event)" class="space-y-2.5">
+        <div>
+          <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">दुकान / कंपनी का नाम *</label>
+          <input type="text" id="pCompany" required placeholder="उदा. नवकार ज्वेलर्स" class="w-full text-xs px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">पद (Role) *</label>
+            <input type="text" id="pTitle" required placeholder="उदा. एकाउंटेंट" class="w-full text-xs px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">शहर *</label>
+            <input type="text" id="pCity" required placeholder="उदा. सूरत / मुंबई" class="w-full text-xs px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">महीने की सैलरी *</label>
+            <input type="text" id="pSalary" required placeholder="₹25,000 - ₹35,000" class="w-full text-xs px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-500" />
+          </div>
+          <div>
+            <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">कैटेगरी</label>
+            <select id="pCat" class="w-full text-xs px-2 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white focus:outline-none">
+              <option value="accounts">एकाउंट्स</option>
+              <option value="textile">टेक्सटाइल</option>
+              <option value="diamond">डायमंड</option>
+              <option value="wfh">घर से (WFH)</option>
+              <option value="maharaj">रसोइया/महाराज</option>
+              <option value="driver">ड्राइवर/स्टाफ</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">आपका WhatsApp नंबर *</label>
+          <input type="tel" id="pPhone" required placeholder="10 डिजिट नंबर" pattern="[0-9]{10}" class="w-full text-xs px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 font-bold focus:outline-none focus:ring-2 focus:ring-brand-500" />
+        </div>
+
+        <button type="submit" class="w-full mt-3 bg-gradient-to-r from-saffron-500 to-amber-500 text-white font-black py-2.5 rounded-xl text-xs shadow-md shadow-saffron-500/20 active:scale-95 transition-transform">
+          🚀 जॉब तुरंत लाइव पोस्ट करें
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ================= APP TOAST NOTIFICATION (BOTTOM POPUP) ================= -->
+  <div id="appToast" class="fixed top-12 left-1/2 -translate-x-1/2 z-50 bg-slate-900/95 dark:bg-white/95 text-white dark:text-slate-900 px-4 py-2.5 rounded-2xl shadow-2xl border border-slate-700 dark:border-slate-200 flex items-center gap-2.5 text-xs font-bold max-w-xs w-full transition-all duration-300 -translate-y-24 opacity-0 pointer-events-none">
+    <div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
+      <i data-lucide="check" class="w-3.5 h-3.5"></i>
+    </div>
+    <span id="toastMsg" class="flex-1">सूरत में नई एकाउंटेंट जॉब पोस्ट हुई!</span>
+  </div>
+
+
+  <!-- ================= JAVASCRIPT: DATA & MOBILE APP ENGINE ================= -->
+  <script>
+    // Initial Job Data Base
+    const jobs = [
+      {
+        id: 1,
+        title: "Senior Tally & GST Accountant",
+        company: "श्री नवकार टेक्सटाइल मिल्स",
+        category: "accounts",
+        location: "surat",
+        locationDisplay: "सूरत (रिंग रोड)",
+        salary: "₹28,000 - ₹40,000 / महीना",
+        exp: "2+ वर्ष अनुभव",
+        type: "Full-Time",
+        phone: "9876543210",
+        perks: "✨ शुद्ध जैन भोजन • संडे अवकाश",
+        communityTag: "जैन फर्म",
+        postedAgo: "10 min पहले",
+        isSaved: false
+      },
+      {
+        id: 2,
+        title: "Diamond Assorter & Grading Staff",
+        company: "महावीर जेम्स & एक्सपोर्ट्स",
+        category: "diamond",
+        location: "mumbai",
+        locationDisplay: "मुंबई (BKC Diamond Bourse)",
+        salary: "₹35,000 - ₹55,000 / महीना",
+        exp: "1-3 वर्ष अनुभव",
+        type: "Full-Time",
+        phone: "9820112233",
+        perks: "💎 इंसेंटिव • AC ऑफिस",
+        communityTag: "डायमंड फर्म",
+        postedAgo: "25 min पहले",
+        isSaved: false
+      },
+      {
+        id: 3,
+        title: "घर बैठे हिंदी/इंग्लिश बैक-ऑफिस कॉलिंग",
+        company: "आदिनाथ डिजिटल वेंचर्स",
+        category: "wfh",
+        location: "remote",
+        locationDisplay: "वर्क फ्रॉम होम (WFH)",
+        salary: "₹18,000 - ₹26,000 / महीना",
+        exp: "फ्रेशर्स भी अप्लाई करें",
+        type: "WFH",
+        phone: "9123456789",
+        perks: "🏡 मोबाइल/लैपटॉप से काम",
+        communityTag: "महिलाएं/छात्र",
+        postedAgo: "1 घंटा पहले",
+        isSaved: false
+      },
+      {
+        id: 4,
+        title: "कपड़ा शोरूम सेल्समैन / काउंटर मास्टर",
+        company: "पार्श्वनाथ साड़ी एम्पोरियम",
+        category: "textile",
+        location: "ahmedabad",
+        locationDisplay: "अहमदाबाद (रतनपोल)",
+        salary: "₹20,000 - ₹30,000 / महीना",
+        exp: "0-2 वर्ष",
+        type: "Full-Time",
+        phone: "9879001122",
+        perks: "🛍️ रहने की व्यवस्था उपलब्ध",
+        communityTag: "जैन ओनर",
+        postedAgo: "2 घंटे पहले",
+        isSaved: false
+      },
+      {
+        id: 5,
+        title: "शुद्ध जैन रसोइया (महाराज) / भोजनालय",
+        company: "श्री संघ जैन ट्रस्ट धर्मशाला",
+        category: "maharaj",
+        location: "jaipur",
+        locationDisplay: "जयपुर (मानसरोवर)",
+        salary: "₹22,000 - ₹32,000 + मुफ्त निवास",
+        exp: "जैन भोजन का ज्ञान",
+        type: "Full-Time",
+        phone: "9414003344",
+        perks: "🍲 भोजन + स्वच्छ कमरा मुफ्त",
+        communityTag: "ट्रस्ट भोजनालय",
+        postedAgo: "3 घंटे पहले",
+        isSaved: false
+      },
+      {
+        id: 6,
+        title: "पर्सनल फैमिली ड्राइवर (कार चालक)",
+        company: "जैन परिवार (उद्योगपति)",
+        category: "driver",
+        location: "delhi",
+        locationDisplay: "दिल्ली NCR (रोहिणी)",
+        salary: "₹22,000 - ₹26,000 / महीना",
+        exp: "3+ वर्ष वैध लाइसेंस",
+        type: "Full-Time",
+        phone: "9811005566",
+        perks: "🚗 ऑटोमैटिक कार • सम्मानजनक कार्य",
+        communityTag: "भरोसेमंद परिवार",
+        postedAgo: "4 घंटे पहले",
+        isSaved: false
+      },
+      {
+        id: 7,
+        title: "CA आर्टिकल / जूनियर टैक्स कंसलटेंट",
+        company: "के. एल. मेहता & एसोसिएट्स (CA)",
+        category: "accounts",
+        location: "indore",
+        locationDisplay: "इंदौर (MG रोड)",
+        salary: "₹18,000 - ₹30,000 / महीना",
+        exp: "B.Com / CA Inter",
+        type: "Full-Time",
+        phone: "9826007788",
+        perks: "📊 GST & इनकम टैक्स ट्रेनिंग",
+        communityTag: "CA फर्म",
+        postedAgo: "5 घंटे पहले",
+        isSaved: false
+      }
+    ];
+
+    let currentCityFilter = 'all';
+    let currentCategoryFilter = 'all';
+    let isSeniorMode = false;
+    let savedJobIds = new Set();
+
+    // Init App
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      renderAppJobs(jobs);
+      updateLiveClock();
+      setInterval(updateLiveClock, 30000);
+    });
+
+    // Update Simulated Phone Clock
+    function updateLiveClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const mins = now.getMinutes().toString().padStart(2, '0');
+      document.getElementById('appLiveClock').innerText = `${hours}:${mins}`;
+    }
+
+    // Render Native App Job Cards
+    function renderAppJobs(jobList) {
+      const listContainer = document.getElementById('appJobsList');
+      const countEl = document.getElementById('appJobCount');
+      const noResults = document.getElementById('appNoResults');
+
+      countEl.innerText = jobList.length;
+
+      if (jobList.length === 0) {
+        listContainer.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+
+      listContainer.innerHTML = jobList.map(job => {
+        const isSaved = savedJobIds.has(job.id);
+        const encodedMsg = encodeURIComponent(`नमस्ते, मैंने JainJob Mobile App पर आपकी जॉब देखी: "${job.title}" (${job.company})। मैं आवेदन करना चाहता हूँ।`);
+        const waLink = `https://wa.me/91${job.phone}?text=${encodedMsg}`;
+
+        return `
+          <div class="bg-white dark:bg-[#151F32] rounded-2xl p-3.5 border border-slate-200/90 dark:border-slate-800 shadow-sm relative overflow-hidden transition-all card-border-bold">
+            
+            <!-- Top Badges & Bookmark Heart -->
+            <div class="flex items-start justify-between gap-2 mb-1.5">
+              <span class="inline-flex items-center gap-1 bg-brand-50 dark:bg-teal-950/50 text-brand-800 dark:text-teal-300 text-[10px] font-extrabold px-2 py-0.5 rounded-md border border-brand-200/60 dark:border-teal-700/40">
+                <i data-lucide="shield-check" class="w-3 h-3 text-brand-600"></i> ${job.communityTag}
+              </span>
+
+              <div class="flex items-center gap-1.5">
+                <span class="text-[10px] font-semibold text-slate-400 dark:text-slate-500">${job.postedAgo}</span>
+                <button onclick="toggleSaveJob(${job.id})" class="p-1 text-slate-400 hover:text-rose-500 active:scale-90 transition-transform" title="जॉब सेव करें">
+                  <i data-lucide="heart" class="w-4 h-4 ${isSaved ? 'fill-rose-500 text-rose-500' : ''}"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Job Title & Company -->
+            <h4 class="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-snug senior-scale">
+              ${job.title}
+            </h4>
+            <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5 flex items-center gap-1">
+              <i data-lucide="building" class="w-3 h-3 text-slate-400"></i> ${job.company}
+            </p>
+
+            <!-- Salary Highlight Bar -->
+            <div class="my-2.5 p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-800/40 flex items-center justify-between">
+              <div>
+                <span class="text-[9px] uppercase font-black text-emerald-800 dark:text-emerald-400 tracking-wider">सैलरी (Salary)</span>
+                <p class="text-xs sm:text-sm font-black text-emerald-700 dark:text-emerald-300 leading-none mt-0.5">${job.salary}</p>
+              </div>
+              <span class="text-[10px] font-bold bg-white dark:bg-slate-800 text-emerald-800 dark:text-emerald-300 px-2 py-0.5 rounded border border-emerald-300 dark:border-emerald-700">
+                ${job.type}
+              </span>
+            </div>
+
+            <!-- Location & Perks Meta -->
+            <div class="space-y-1 text-[11px] text-slate-600 dark:text-slate-400">
+              <div class="flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i>
+                <span class="font-medium">${job.locationDisplay}</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-amber-800 dark:text-amber-300 font-semibold bg-amber-50 dark:bg-amber-950/40 px-1.5 py-0.5 rounded border border-amber-200 dark:border-amber-800/50">
+                <i data-lucide="sparkles" class="w-3 h-3 text-amber-500 shrink-0"></i>
+                <span class="truncate">${job.perks}</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons: 1-Click WhatsApp + Direct Call -->
+            <div class="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
+              <a 
+                href="${waLink}" 
+                target="_blank" 
+                class="app-btn flex-1 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-extrabold text-xs py-2 px-3 rounded-xl shadow-md shadow-emerald-600/20 flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+              >
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>WhatsApp Apply</span>
+              </a>
+
+              <a 
+                href="tel:+91${job.phone}" 
+                class="app-btn p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center justify-center gap-1 active:scale-95 transition-transform"
+                title="कॉल करें"
+              >
+                <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-600 dark:text-teal-400"></i>
+                <span class="hidden sm:inline">कॉल</span>
+              </a>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    // Live Search Filter
+    function handleLiveSearch(query) {
+      const q = query.toLowerCase().trim();
+      const filtered = jobs.filter(job => 
+        job.title.toLowerCase().includes(q) ||
+        job.company.toLowerCase().includes(q) ||
+        job.locationDisplay.toLowerCase().includes(q) ||
+        job.category.toLowerCase().includes(q)
+      );
+      renderAppJobs(filtered);
+    }
+
+    // Filter by City Pill
+    function filterCity(city) {
+      currentCityFilter = city;
+      document.querySelectorAll('.city-pill').forEach(pill => {
+        if (pill.getAttribute('data-city') === city) {
+          pill.className = 'city-pill active px-3 py-1.5 rounded-xl text-xs font-bold bg-brand-700 text-white shrink-0 shadow-sm';
+        } else {
+          pill.className = 'city-pill px-3 py-1.5 rounded-xl text-xs font-bold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shrink-0';
+        }
+      });
+
+      applyCombinedFilter();
+    }
+
+    // Filter by Category Story
+    function filterCategory(cat) {
+      currentCategoryFilter = (currentCategoryFilter === cat) ? 'all' : cat;
+      applyCombinedFilter();
+    }
+
+    function applyCombinedFilter() {
+      let filtered = jobs.filter(job => {
+        const matchesCity = (currentCityFilter === 'all' || job.location === currentCityFilter);
+        const matchesCat = (currentCategoryFilter === 'all' || job.category === currentCategoryFilter);
+        return matchesCity && matchesCat;
+      });
+      renderAppJobs(filtered);
+    }
+
+    function resetAppFilters() {
+      currentCityFilter = 'all';
+      currentCategoryFilter = 'all';
+      document.getElementById('appSearchInput').value = '';
+      filterCity('all');
+    }
+
+    // Toggle Saved Jobs
+    function toggleSaveJob(id) {
+      if (savedJobIds.has(id)) {
+        savedJobIds.delete(id);
+        showToast("जॉब सेव लिस्ट से हटाई गई");
+      } else {
+        savedJobIds.add(id);
+        showToast("❤️ जॉब सफलतापूर्वक सेव हो गई!");
+      }
+
+      // Update badge
+      const badge = document.getElementById('savedCountBadge');
+      if (savedJobIds.size > 0) {
+        badge.classList.remove('hidden');
+        badge.innerText = savedJobIds.size;
+      } else {
+        badge.classList.add('hidden');
+      }
+
+      renderAppJobs(jobs);
+    }
+
+    // Switch App Tab
+    function switchAppTab(tab) {
+      if (tab === 'saved') {
+        const savedList = jobs.filter(j => savedJobIds.has(j.id));
+        renderAppJobs(savedList);
+        showToast(`सेव की गई ${savedList.length} नौकरियां दिख रही हैं`);
+      } else if (tab === 'alerts') {
+        showToast("🔔 आपके WhatsApp पर नए अलर्ट सक्रिय हैं!");
+      } else {
+        renderAppJobs(jobs);
+      }
+    }
+
+    // Senior Mode Toggle
+    function toggleSeniorMode() {
+      isSeniorMode = !isSeniorMode;
+      document.body.classList.toggle('senior-mode', isSeniorMode);
+      const text = document.getElementById('seniorText');
+      if (isSeniorMode) {
+        text.innerText = "सामान्य अक्षर";
+        showToast("👓 बड़ा अक्षर मोड़ चालू हुआ");
+      } else {
+        text.innerText = "बड़ा अक्षर";
+      }
+    }
+
+    // App Theme Toggle (Dark / Light)
+    function toggleAppTheme() {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      const icon = document.getElementById('themeIcon');
+      if (isDark) {
+        icon.setAttribute('data-lucide', 'sun');
+      } else {
+        icon.setAttribute('data-lucide', 'moon');
+      }
+      lucide.createIcons();
+    }
+
+    // Voice Search Simulator
+    function simulateVoiceSearch() {
+      const alertBox = document.getElementById('appVoiceAlert');
+      alertBox.classList.remove('hidden');
+
+      setTimeout(() => {
+        document.getElementById('appSearchInput').value = "Tally Accountant";
+        alertBox.classList.add('hidden');
+        handleLiveSearch("Tally");
+        showToast("🎙️ 'Tally Accountant' सर्च किया गया");
+      }, 1600);
+    }
+
+    // Load More Feed
+    function loadMoreFeed() {
+      const newJob = {
+        id: Date.now(),
+        title: "ऑफिस असिस्टेंट & बिलिंग एग्जीक्यूटिव",
+        company: "वर्धमान फार्मास्यूटिकल्स",
+        category: "accounts",
+        location: "surat",
+        locationDisplay: "सूरत (उधना)",
+        salary: "₹18,000 - ₹25,000 / महीना",
+        exp: "1 वर्ष",
+        type: "Full-Time",
+        phone: "9876543210",
+        perks: "💊 दवा डिस्काउंट • समय पर सैलरी",
+        communityTag: "फार्मा फर्म",
+        postedAgo: "अभी-अभी",
+        isSaved: false
+      };
+      jobs.push(newJob);
+      renderAppJobs(jobs);
+      showToast("✅ नई नौकरियां फीड में जुड़ गईं!");
+    }
+
+    // Toast Notification Display
+    function showToast(msg) {
+      const toast = document.getElementById('appToast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.remove('-translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.add('-translate-y-24', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }, 2500);
+    }
+
+    function showAppNotificationToast() {
+      showToast("🔔 3 नई नौकरियां आपके शहर में उपलब्ध हैं!");
+    }
+
+    // Modal Handlers
+    function openPostJobModal() {
+      document.getElementById('postJobModal').classList.remove('hidden');
+      document.getElementById('postJobModal').classList.add('flex');
+    }
+    function closePostJobModal() {
+      document.getElementById('postJobModal').classList.add('hidden');
+      document.getElementById('postJobModal').classList.remove('flex');
+    }
+
+    function handlePostJob(e) {
+      e.preventDefault();
+      const newJob = {
+        id: Date.now(),
+        title: document.getElementById('pTitle').value,
+        company: document.getElementById('pCompany').value,
+        location: document.getElementById('pCity').value.toLowerCase(),
+        locationDisplay: document.getElementById('pCity').value,
+        salary: document.getElementById('pSalary').value,
+        category: document.getElementById('pCat').value,
+        type: "Full-Time",
+        phone: document.getElementById('pPhone').value,
+        perks: "✨ शुद्ध वातावरण • तुरंत जॉइनिंग",
+        communityTag: "नई पोस्टेड जॉब",
+        postedAgo: "अभी",
+        isSaved: false
+      };
+
+      jobs.unshift(newJob);
+      renderAppJobs(jobs);
+      closePostJobModal();
+      showToast("🎉 आपकी जॉब लाइव पोस्ट हो गई है!");
+    }
+
+    function handleAppSubscribe() {
+      const num = document.getElementById('appSubNumber').value;
+      if (num.length === 10) {
+        document.getElementById('appSubSuccess').classList.remove('hidden');
+        document.getElementById('appSubNumber').value = '';
+        showToast("✅ WhatsApp अलर्ट चालू हो गए!");
+      } else {
+        alert("कृपया 10 अंकों का मोबाइल नंबर डालें");
+      }
+    }
+
+    function changeLanguage(lang) {
+      if (lang === 'en') showToast("Switched to English");
+      if (lang === 'gu') showToast("ગુજરાતી ભાષા પસંદ થઈ");
+    }
+  </script>
+
+</body>
+</html>
